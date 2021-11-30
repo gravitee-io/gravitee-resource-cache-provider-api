@@ -15,21 +15,29 @@
  */
 package io.gravitee.resource.cache.api;
 
+import java.util.Map;
+import java.util.UUID;
+
 /**
  * @author David BRASSELY (david.brassely at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface Cache {
-
+public interface Cache<K, V> {
     String getName();
 
-    Object getNativeCache();
+    int size();
 
-    Element get(Object key);
+    Map<K, V> getNativeCache();
 
-    void put(Element element);
+    Element<K, V> get(K key);
 
-    void evict(Object key);
+    V put(Element<K, V> element);
+
+    V evict(K key);
 
     void clear();
+
+    UUID addCacheListener(CacheListener<K, V> cacheListener);
+
+    boolean removeCacheListener(UUID id);
 }

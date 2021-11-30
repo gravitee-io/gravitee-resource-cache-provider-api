@@ -15,25 +15,31 @@
  */
 package io.gravitee.resource.cache.api;
 
+import java.util.EventObject;
+
 /**
- * @author David BRASSELY (david.brassely at graviteesource.com)
+ * @author Kamiel Ahmadpour (kamiel.ahmadpour at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class Element<K, V> {
+public class EntryEvent<K, V> extends EventObject {
 
     private K key;
+    private V oldValue;
     private V value;
-    private int timeToLive = 0;
+    private final EntryEventType eventType;
 
-    public Element(K key, V value) {
+    /**
+     * Constructs a prototypical Event.
+     *
+     * @param source the object on which the Event initially occurred
+     * @throws IllegalArgumentException if source is null
+     */
+    public EntryEvent(Object source, EntryEventType eventType, K key, V oldValue, V value) {
+        super(source);
+        this.eventType = eventType;
         this.key = key;
+        this.oldValue = oldValue;
         this.value = value;
-    }
-
-    public Element(K key, V value, int timeToLive) {
-        this.key = key;
-        this.value = value;
-        this.timeToLive = timeToLive;
     }
 
     public K getKey() {
@@ -44,6 +50,14 @@ public class Element<K, V> {
         this.key = key;
     }
 
+    public V getOldValue() {
+        return oldValue;
+    }
+
+    public void setOldValue(V oldValue) {
+        this.oldValue = oldValue;
+    }
+
     public V getValue() {
         return value;
     }
@@ -52,11 +66,7 @@ public class Element<K, V> {
         this.value = value;
     }
 
-    public int getTimeToLive() {
-        return timeToLive;
-    }
-
-    public void setTimeToLive(int timeToLive) {
-        this.timeToLive = timeToLive;
+    public EntryEventType getEventType() {
+        return eventType;
     }
 }
