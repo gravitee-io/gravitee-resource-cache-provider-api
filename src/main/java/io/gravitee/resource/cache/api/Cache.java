@@ -17,6 +17,7 @@ package io.gravitee.resource.cache.api;
 
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author David BRASSELY (david.brassely at graviteesource.com)
@@ -27,11 +28,17 @@ public interface Cache<K, V> {
 
     int size();
 
+    boolean isEmpty();
+
     Map<K, V> getNativeCache();
 
-    Element<K, V> get(K key);
+    V get(K key);
 
-    V put(Element<K, V> element);
+    V put(K key, V value);
+
+    V put(K key, V value, long ttl, TimeUnit ttlUnit);
+
+    void putAll(Map<? extends K, ? extends V> m);
 
     V evict(K key);
 
