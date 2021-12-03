@@ -16,6 +16,7 @@
 package io.gravitee.resource.cache.api;
 
 import io.gravitee.gateway.api.ExecutionContext;
+import io.gravitee.node.api.cache.Cache;
 import io.gravitee.resource.api.AbstractConfigurableResource;
 import io.gravitee.resource.api.ResourceConfiguration;
 
@@ -23,9 +24,9 @@ import io.gravitee.resource.api.ResourceConfiguration;
  * @author David BRASSELY (david.brassely at graviteesource.com)
  * @author GraviteeSource Team
  */
-public abstract class CacheResource<C extends ResourceConfiguration> extends AbstractConfigurableResource<C> {
+public abstract class CacheResource<K, V, C extends ResourceConfiguration> extends AbstractConfigurableResource<C> {
 
-    public abstract <K, V> Cache<K, V> getCache(ExecutionContext executionContext);
+    public abstract Cache<K, V> getCache(ExecutionContext executionContext);
 
     public String keySeparator() {
         return "_";

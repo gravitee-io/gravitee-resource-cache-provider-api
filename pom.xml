@@ -36,6 +36,7 @@
     <properties>
         <gravitee-resource-api.version>1.0.0</gravitee-resource-api.version>
         <gravitee-gateway-api.version>1.8.0</gravitee-gateway-api.version>
+        <gravitee-node.version>1.19.0-SNAPSHOT</gravitee-node.version>
     </properties>
 
     <dependencies>
@@ -51,6 +52,13 @@
             <groupId>io.gravitee.gateway</groupId>
             <artifactId>gravitee-gateway-api</artifactId>
             <version>${gravitee-gateway-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gravitee.node</groupId>
+            <artifactId>gravitee-node-api</artifactId>
+            <version>${gravitee-node.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
