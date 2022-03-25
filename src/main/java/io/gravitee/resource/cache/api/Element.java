@@ -20,7 +20,6 @@ package io.gravitee.resource.cache.api;
  * @author GraviteeSource Team
  */
 public interface Element {
-
     Object key();
 
     Object value();
