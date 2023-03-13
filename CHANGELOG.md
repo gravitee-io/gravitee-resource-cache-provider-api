@@ -5,6 +5,13 @@
 
 * rename 'jupiter' package in 'reactive' ([a8acd83](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/a8acd833f8c87da962e0853b3a366f0439cb94c9))
 
+# [1.4.0-alpha.1](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/1.3.0...1.4.0-alpha.1) (2023-03-13)
+
+
+### Features
+
+* rename 'jupiter' package in 'reactive' ([a8acd83](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/a8acd833f8c87da962e0853b3a366f0439cb94c9))
+
 # [1.3.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/1.2.0...1.3.0) (2022-09-02)
 
 
