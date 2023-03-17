@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/1.3.0...1.4.0) (2023-03-17)
+
+
+### Bug Fixes
+
+* **deps:** upgrade gravitee-bom & alpha version ([e3b5936](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/e3b5936bbe72584c7f3a2df30069c7d5fa08dc97))
+
+
+### Features
+
+* rename 'jupiter' package in 'reactive' ([d3cc2a4](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/d3cc2a44fa2f98385e5d94c349d679484f62e3d7))
+
 # [1.4.0-alpha.1](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/1.3.0...1.4.0-alpha.1) (2023-03-13)
 
 
