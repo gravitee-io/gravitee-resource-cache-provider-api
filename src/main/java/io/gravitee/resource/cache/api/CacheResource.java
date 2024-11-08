@@ -16,6 +16,7 @@
 package io.gravitee.resource.cache.api;
 
 import io.gravitee.gateway.reactive.api.context.GenericExecutionContext;
+import io.gravitee.gateway.reactive.api.context.base.BaseExecutionContext;
 import io.gravitee.resource.api.AbstractConfigurableResource;
 import io.gravitee.resource.api.ResourceConfiguration;
 
@@ -27,7 +28,13 @@ public abstract class CacheResource<C extends ResourceConfiguration> extends Abs
 
     public abstract Cache getCache(io.gravitee.gateway.api.ExecutionContext ctx);
 
+    /**
+     * @deprecated use <code>getCache({@link BaseExecutionContext})</code> instead
+     */
+    @Deprecated(forRemoval = true)
     public abstract Cache getCache(GenericExecutionContext ctx);
+
+    public abstract Cache getCache(BaseExecutionContext ctx);
 
     public String keySeparator() {
         return "_";
