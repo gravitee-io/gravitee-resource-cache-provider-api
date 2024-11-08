@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/1.4.0...2.0.0) (2024-11-08)
+
+
+### Features
+
+* add getCache with BaseExecutionContext ([4150aec](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/4150aecdee464d55666208886e0e4b5b537ad27f))
+* bump dependencies ([f6aed5f](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/f6aed5ffd102e22ff4ab914b88619fffbea65f62))
+
+
+### BREAKING CHANGES
+
+* requires gravitee-gateway-api 3.9.0+
+
+https://gravitee.atlassian.net/browse/APIM-7417
+
 # [1.4.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/1.3.0...1.4.0) (2023-03-17)
 
 
