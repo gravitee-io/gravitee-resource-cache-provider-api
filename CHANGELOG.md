@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/2.0.0...2.1.0) (2026-04-13)
+
+
+### Features
+
+* **cache:** add async methods to Cache interface ([#43](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/issues/43)) ([a999fa6](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/a999fa657d8303af34ff3f36eef54a4186662e36))
+
 # [2.0.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/1.4.0...2.0.0) (2024-11-08)
 
 
