@@ -15,6 +15,8 @@
  */
 package io.gravitee.resource.cache.api;
 
+import io.vertx.core.Future;
+
 /**
  * @author David BRASSELY (david.brassely at graviteesource.com)
  * @author GraviteeSource Team
@@ -31,4 +33,39 @@ public interface Cache {
     void evict(Object key);
 
     void clear();
+
+    default Future<Element> getAsync(Object key) {
+        try {
+            return Future.succeededFuture(get(key));
+        } catch (Exception e) {
+            return Future.failedFuture(e);
+        }
+    }
+
+    default Future<Void> putAsync(Element element) {
+        try {
+            put(element);
+            return Future.succeededFuture();
+        } catch (Exception e) {
+            return Future.failedFuture(e);
+        }
+    }
+
+    default Future<Void> evictAsync(Object key) {
+        try {
+            evict(key);
+            return Future.succeededFuture();
+        } catch (Exception e) {
+            return Future.failedFuture(e);
+        }
+    }
+
+    default Future<Void> clearAsync() {
+        try {
+            clear();
+            return Future.succeededFuture();
+        } catch (Exception e) {
+            return Future.failedFuture(e);
+        }
+    }
 }
