@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/2.1.0...2.2.0) (2026-05-28)
+
+
+### Features
+
+* **cache:** add getBinaryAsync/putBinaryAsync to Cache (APIM-13628) ([#44](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/issues/44)) ([f5f23b7](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/commit/f5f23b7e030978a5067d15c061168424929b3959))
+
 # [2.1.0](https://github.com/gravitee-io/gravitee-resource-cache-provider-api/compare/2.0.0...2.1.0) (2026-04-13)
 
 
