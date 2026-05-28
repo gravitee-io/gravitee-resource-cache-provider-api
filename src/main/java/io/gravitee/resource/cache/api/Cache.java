@@ -68,4 +68,48 @@ public interface Cache {
             return Future.failedFuture(e);
         }
     }
+
+    /**
+     * Read a value preserving binary fidelity.
+     * <p>
+     * Implementations that distinguish between text and binary storage (e.g. Redis) MUST override this
+     * method and return the value as a {@code byte[]} on the {@link Element#value()} of the returned
+     * element. Backends that do not distinguish (e.g. in-memory) may rely on the default delegation
+     * to {@link #getAsync(Object)}.
+     * <p>
+     * <strong>Backends that store text-typed values and do not override this method will return an
+     * {@link Element} whose {@link Element#value()} is the backend's native type</strong> (e.g.
+     * {@code String}), not {@code byte[]}. Callers must be prepared to handle this — typically by
+     * version-sniffing the payload (see the {@code gravitee-policy-cache} {@code CacheFrame.isLegacyFormat}
+     * pattern) rather than blindly casting to {@code byte[]}.
+     *
+     * @param key the cache key
+     * @return a future completing with the element, or {@code null} if absent
+     * @since 2.2.0
+     */
+    default Future<Element> getBinaryAsync(Object key) {
+        return getAsync(key);
+    }
+
+    /**
+     * Write a value preserving binary fidelity.
+     * <p>
+     * The {@link Element#value()} is expected to be a {@code byte[]}. Implementations that distinguish
+     * between text and binary storage (e.g. Redis) MUST override this method and persist the raw bytes
+     * without character-encoding transformations. Backends that do not distinguish may rely on the
+     * default delegation to {@link #putAsync(Element)}.
+     * <p>
+     * <strong>If the backend has not overridden this method, the default delegation to
+     * {@link #putAsync(Element)} may fail at runtime</strong> (e.g. with {@code ClassCastException})
+     * when the underlying implementation expects a {@code String}-typed value. Operators upgrading
+     * a cache backend across this API version should ensure the backend implements this method
+     * before routing binary writes to it.
+     *
+     * @param element the element to store; {@code element.value()} must be a {@code byte[]}
+     * @return a future completing when the write is done
+     * @since 2.2.0
+     */
+    default Future<Void> putBinaryAsync(Element element) {
+        return putAsync(element);
+    }
 }
